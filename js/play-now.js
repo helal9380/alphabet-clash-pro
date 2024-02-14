@@ -1,17 +1,28 @@
-document.getElementById('play-now-btn').addEventListener('click', function() {
-    const playNowHome = document.getElementById('play-now-home');
-    playNowHome.classList.add('hidden')
+const hideElement = (element) => {
+    const homeSection = document.getElementById(element);
+    homeSection.classList.add('hidden');
+}
 
-    const playGround = document.getElementById('play-ground-section');
-    playGround.classList.remove('hidden');
+function getAlphabet() {
+    const alphabetString = 'abcdefghijklmnopqrstuvwxyz';
+    const alphabetArray = alphabetString.split('');
 
-    const alphabetString = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    const alphabet = alphabetString.split('');
+    const random = Math.random() * 25;
+    const index = Math.floor(random);
 
-    const rendomNumber = Math.random() * 25;
-    const random = Math.floor(rendomNumber);
-    const alphabetIndex = alphabet[random];
-    
-    document.getElementById('set-alphabet').innerText = alphabetIndex;
-    
-})
+    const alphabet = alphabetArray[index];
+    return alphabet;
+}
+function setAlphabet(element,alphabet) {
+    const setAlphabetElement = document.getElementById(element);
+    setAlphabetElement.innerText = alphabet;
+}
+function setStyle(element) {
+    const setStyleElement = document.getElementById(element);
+    console.log(element)
+    setStyleElement.classList.add('bg-orange-500');
+}
+function showElement(element) {
+    const showSection = document.getElementById(element);
+    showSection.classList.remove('hidden');
+}
